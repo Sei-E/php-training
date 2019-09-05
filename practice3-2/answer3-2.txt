@@ -1,0 +1,10 @@
+1.
+    <?php
+    $flag = $x == 1 ? 0 : -1; 
+    ?>
+    
+2.
+    (1)true
+    (2)false
+    (3)false
+    (4)true
