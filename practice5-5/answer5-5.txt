@@ -1,0 +1,11 @@
+1.空欄を埋めよ
+    ①[]
+    ②fopen
+    ③ab
+    ④or die
+    ⑤flock
+    ⑥fwrite
+    ⑦implode
+    ⑧,
+    ⑨\n
+    ⑩fclose
