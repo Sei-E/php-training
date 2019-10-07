@@ -1,0 +1,38 @@
+1.対応するキーワード
+    (1)オブジェクト指向データベース
+    (2)データベース抽象化レイヤ
+    (3)ロールバック
+    (4)SQLite
+    (5)仮想テーブル
+
+2.正誤判定
+    (×)トランザクション処理を利用することで、データベースの更新処理を高速化できる。
+        ➔一連の処理が「すべて成功」か「すべて失敗」することを担保できる。
+
+    (◯)データベース抽象化レイヤを利用することで、データベース個々の機能を十分に引き出すことができる。
+        ➔「開発者がバックエンドのデータベースをほとんど気にすることなく、アプリケーションのロジックに集中できる」という意味では性能を引き出すと言える(?)
+
+    (×)DDLに属するSQL命令にはSELECT、UPDATE、INSERTなどがある。
+        ➔DDL(データ定義言語)ではなく、DML(データ操作言語)。
+
+    (◯)条件式「title LIKE '%PHP'」は後方一致検索(titleフィールドが「PHP」で終わるかどうか)を表す。
+
+    (◯)更新処理を行うにはqueryメソッドを、検索処理を行うにはexecメソッドを利用する。
+
+3.条件を満たすSQL命令を記述せよ。
+    (1)bookテーブルの価格(price列)を1割引の価格に変更する。
+        UPDATE book SET price = price * 0.9;
+
+    (2)bookテーブルから価格が2500円以上で、かつ、出版日が2015年4月より前の書籍を削除する。
+        DELETE FROM book WHERE price >= 2500 AND published < '2015-04-01';
+
+    (3)bookテーブルから翔泳社の書籍を取り出す。ただし、価格が安い順で、価格が同じものは出版日が新しい順に並べる。取り出す列は、title、price、publish、publishedとする。
+        SELECT title, price, publish, published FROM book ORDER BY price, published DESC;
+
+    (4)usrテーブルから名字が「山田」の人のユーザID(uid列)とユーザ名(unam)を取り出す。
+        SELECT uid, unam FROM usr WHERE unam LIKE '山田%';
+
+    (5)bookテーブルから出版社ごとの書籍の平均価格を算出する。
+        SELECT publish AVG(price) FROM book GROUP BY publish;
+
+4.(別ファイル参照)
